@@ -1,4 +1,4 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faLocation, faLocationArrow, faMailBulk, faMailForward, faMessage, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
@@ -6,10 +6,10 @@ const Footer = () => {
     return (
         <footer className="backgroundTheme text-white">
             <div className="mx-auto w-full max-w-screen-xl">
-                <div className="grid grid-cols-3 gap-8 px-4 py-6 lg:py-8 md:grid-cols-7">
-                    <div className="col-span-3 md:w-[70%]">
+                <div className="grid grid-cols-4 gap-8 px-4 py-6 lg:py-8 md:grid-cols-8">
+                    <div className="col-span-4 md:col-span-2 md:w-[100%]">
                         <h2 className="mb-6 text-sm font-semibold text-white uppercase">
-                            <img src="/Logo-white.png" className="h-15 p-3" alt="Logo" />
+                            <img src="/J2911white.png" className="h-28" alt="Logo" />
                         </h2>
                         <p className="w-max[50%]">
                             When do they work well, and when do
@@ -26,7 +26,7 @@ const Footer = () => {
 
                     </div>
                     <hr className="verticalLine hidden md:block mt-12" />
-                    <div className="md:mt-12">
+                    <div className="md:mt-12 col-span-2 md:col-span-1">
                         <h2 className="mb-6 text-sm font-semibold text-white">Quick Links</h2>
                         <ul className="text-color-500 font-medium">
                             <li className="mb-3">
@@ -43,7 +43,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="md:mt-12">
+                    <div className="md:mt-12 col-span-2 md:col-span-1">
                         <h2 className="mb-6 text-sm font-semibold text-white">Utility pages</h2>
                         <ul className="text-white font-medium">
                             <li className="mb-4">
@@ -63,7 +63,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="md:mt-12">
+                    <div className="md:mt-12 col-span-2 md:col-span-1">
                         <h2 className="mb-6 text-sm font-semibold text-white">Resources</h2>
                         <ul className="text-white font-medium">
                             <li className="mb-4">
@@ -81,6 +81,43 @@ const Footer = () => {
                             <li className="mb-4">
                                 <a href="#" className="hover:underline link text-white">Video guide</a>
                             </li>
+                        </ul>
+                    </div>
+                    <div className="md:mt-12 col-span-2 md:col-span-2">
+                        <h2 className="mb-6 text-sm font-semibold text-white">Get in Touch</h2>
+                        <ul className="text-white font-medium">
+                            <li className="mb-4">
+                                <span className="link text-white">
+                                    <FontAwesomeIcon icon={faLocationArrow} className="h-[20px] w-[30px]" />
+                                    Address:
+                                </span>
+                                <br />
+                                <span>1A, ROAD 3,
+                                    IKOTA VILLA ESTATE,
+                                    LEKKI, LAGOS.
+                                </span>
+                            </li>
+                            <li className="mb-4">
+                                <span className="link text-white">
+                                    <FontAwesomeIcon icon={faPhone} className="h-[20px] w-[30px]" />
+                                    Phone:
+                                </span>
+                                <br />
+                                <span>
+                                    (+234)7044544455
+                                </span>
+                            </li>
+                            <li className="mb-4">
+                                <span className="link text-white">
+                                    <FontAwesomeIcon icon={faMessage} className="h-[20px] w-[30px]" />
+                                    Email:
+                                </span>
+                                <br />
+                                <span>
+                                    info@j2911.com.ng
+                                </span>
+                            </li>
+
                         </ul>
                     </div>
                 </div>

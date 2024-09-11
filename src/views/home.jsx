@@ -7,9 +7,11 @@ import Navigation from "../components/navbar";
 import Footer from "../components/footer";
 import Contact from "../components/contact";
 import { isMobile } from "../utils";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [isMobileView, setIsMobileView] = useState(false);
+  const navigate = useNavigate();
   const divRef = useRef(null);
   const aboutDivRef = useRef(null);
   const serviceDivRef = useRef(null);
@@ -39,22 +41,19 @@ export default function Home() {
         >
           <div>
             <span style={{ backgroundColor: "#F3F3F1", borderLeft: "8px solid #003DA7", padding: "5px" }} className="">
-              Your resourceful partner
+              Your Resourceful Partner
             </span>
           </div>
           <h1 className="mt-4 md:max-w-[95%] md:text-5xl text-4xl font-normal">
             Empowering Organizations for a Dynamic Future
           </h1>
           <p className="mt-4 font-sm md:font-lg">
-            We envision a future where organizations transcend boundaries and embrace innovation to thrive in an ever-evolving landscape.
+            At J2911 RESOURCES LLC, We envision a future where organizations transcend boundaries and embrace innovation to thrive in an ever-evolving landscape. Our vision is to be the catalyst that empowers businesses to navigate challenges, leverage technology, foster strategic collaborations, and achieve sustained success.
           </p>
           <div className="mt-4 flex mb-3 md:mb-0">
-            <button className="flex items-center backgroundTheme p-3 rounded-xl border-none text-white">
-              Get a Quote
-              <FontAwesomeIcon icon={faArrowRight} className="h-[20px] w-[30px]" />
-            </button>
-            <button className="ml-2 bg-gray-300 p-3 rounded-xl border-none" style={{ minWidth: "30%" }}>
+            <button onClick={() => navigate('/about')} className="flex items-center backgroundTheme p-3 rounded-xl border-none text-white">
               Learn More
+              <FontAwesomeIcon icon={faArrowRight} className="h-[20px] w-[30px]" />
             </button>
           </div>
         </motion.div>
@@ -76,8 +75,8 @@ export default function Home() {
             </div>
           </div>
           <img
-            src="/christopher.jpeg"
-            alt="christopher.jpeg"
+            src="/pexels-alxs.jpg"
+            alt="christopher"
             className="h-[90%] w-[95%] relativeImg"
           />
           <div className="backgroundTheme projectOverlay">
@@ -100,14 +99,14 @@ export default function Home() {
             transition: !isMobileView && "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
           }}
         >
-          <img src="/about-1.jpeg"
-            alt="christopher.jpeg relativeImg"
-            className="h-[75%] pl-8 w-[70%]"
+          <img src="/pexels-markus-winkler.jpg"
+            alt="christopher"
+            className="h-[75%] pl-8 w-[70%] relativeImg rounded"
             width={1000}
             height={1000}
           />
-          <img src="/about-2.jpeg"
-            alt="christopher.jpeg"
+          <img src="/pexels-jakubzerdzicki.jpg"
+            alt="christopher"
             className="h-[20%] pl-8 overlayAboutImg"
             width={100}
             height={100}
@@ -138,7 +137,7 @@ export default function Home() {
               At J2911 RESOURCES LLC, we pride ourselves on being a leading consultancy firm specializing in a comprehensive range of services tailored to meet the dynamic needs of the modern business landscape. With a wealth of experience and a proven track record, we are committed to empowering your organization for sustained growth and success.
             </p>
             <div className="mt-2 pt-3">
-              <button className="flex items-center backgroundTheme p-3 rounded-xl border-none text-white">
+              <button onClick={() => navigate('/about')} className="flex items-center backgroundTheme p-3 rounded-xl border-none text-white">
                 Learn More
                 <FontAwesomeIcon icon={faArrowRight} className="h-[20px] w-[30px]" />
               </button>
@@ -154,7 +153,7 @@ export default function Home() {
           <span className="tracking-[1px] uppercase text-[#6A6A77] mt-2">Our Services</span>
           <h1 className="text-3xl md:text-4xl font-normal mt-2">Leverage Our Expertise</h1>
         </div>
-        <motion.div 
+        <motion.div
           className="p5 grid md:grid-cols-2 grid-cols-1 gap-2"
           ref={serviceDivRef}
           style={{
@@ -176,14 +175,14 @@ export default function Home() {
                 cybersecurity, we provide solutions that align with your business
                 goals.
               </p>
-              <div class="flex md:mt-3">
+              <div className="flex md:mt-3">
                 <button className="flex items-center serviceBorder justify-center bg-[#f6f3f3] font-semibold rounded-full  w-[19%] sm:w-[20%] md:w-[25%] lg:w-[13%] h-[40px]">
                   <img src="/rightarrow.png" alt="Right Arrow" height={100} width={100} className="h-[70%] w-[40%]" />
                 </button>
               </div>
             </div>
           </div>
-          <div class="rounded p-2 shadowcard">
+          <div className="rounded p-2 shadowcard">
             <div className="card ps-2 pb-5">
               <div className="card-body ">
                 <div className="roundServiceDiv p-3">
@@ -196,7 +195,7 @@ export default function Home() {
                   analysis, and tailored growth strategies to propel your
                   business into new heights.
                 </p>
-                <div class="flex md:mt-3">
+                <div className="flex md:mt-3">
                   <button className="flex items-center serviceBorder justify-center bg-[#f6f3f3] font-semibold rounded-full w-[19%] sm:w-[20%] md:w-[25%] lg:w-[12%] h-[40px]">
                     <img src="/rightarrow.png" alt="Right Arrow" height={100} width={100} className="h-[70%] w-[40%]" />
                   </button>
@@ -205,7 +204,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div class="rounded p-2 shadowcard">
+          <div className="rounded p-2 shadowcard">
             <div className="card ps-2">
               <div className="card-body">
                 <div className="roundServiceDiv p-3">
@@ -219,7 +218,7 @@ export default function Home() {
                   mitigate risks, and create a conducive environment for your
                   operations.
                 </p>
-                <div class="flex md:mt-3">
+                <div className="flex md:mt-3">
                   <button className="flex items-center serviceBorder justify-center bg-[#f6f3f3] font-semibold rounded-full w-[19%] sm:w-[20%] md:w-[25%] lg:w-[12%] h-[40px]">
                     <img src="/rightarrow.png" alt="Right Arrow" height={100} width={100} className="h-[70%] w-[40%]" />
                   </button>
@@ -228,7 +227,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div class="rounded p-2 shadowcard">
+          <div className="rounded p-2 shadowcard">
             <div className="card ps-2">
               <div className="card-body">
                 <div className="roundServiceDiv p-3">
@@ -244,7 +243,7 @@ export default function Home() {
                   enhance your market presence and create mutually beneficial
                   opportunities.
                 </p>
-                <div class="flex md:mt-3">
+                <div className="flex md:mt-3">
                   <button className="flex items-center serviceBorder justify-center bg-[#f6f3f3] font-semibold rounded-full w-[19%] sm:w-[20%] md:w-[25%] lg:w-[12%] h-[40px]">
                     <img src="/rightarrow.png" alt="Right Arrow" height={100} width={100} className="h-[70%] w-[40%]" />
                   </button>
@@ -265,13 +264,27 @@ export default function Home() {
             textAlign: "center"
           }}>
             <p
-              className="text-3xl md:text-5xl font-normal w-[70%] md:w-[33%] mt-4"
+              className="text-2xl md:text-3xl font-normal w-[70%] md:w-[33%] mt-4"
             >
-              The leading Edge in the Industry
+              Your Resourceful Partner
             </p>
+          </div>
 
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center"
+          }}>
+            <p
+              className="text-md md:text-base font-normal w-[90%] md:w-[80%] mt-2"
+            >
+
+              We are not just consultants, we are an extension of your team, working collaboratively to understand your unique challenges and develop solutions that deliver real results.
+            </p>
           </div>
         </div>
+
         <div className="p-2 grid md:grid-cols-3 grid-cols-1 gap-2 mb-2">
           <div className="rounded p5">
             <div className="flex">
@@ -340,11 +353,6 @@ export default function Home() {
           </div>
           <div className="rounded p5 mt-6">
             <h1 className="cardHead">Let’s guide you every step of the way!</h1>
-            <p className="cardDetail">
-              <button className="quoteBtn mt-2">
-                Get a Quote
-              </button>
-            </p>
           </div>
         </div>
       </div>

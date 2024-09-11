@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Services from './views/services';
 import About from './views/about';
 import ContactUs from './views/contact';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +30,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <RouterProvider router={router} />
     </>
   )

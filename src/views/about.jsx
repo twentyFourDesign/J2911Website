@@ -52,15 +52,15 @@ const About = () => {
                     }}
                 >
                     <img
-                        src="/aboutHead.jpg"
-                        alt="christopher.jpeg relativeImg"
+                        src="/pexels-markus-winkler.jpg"
+                        alt="christopher relativeImg"
                         className="h-[95%] pl-8 w-[70%]"
                         width={1000}
                         height={1000}
                     />
                     <img
-                        src="/aboutHead2.jpeg"
-                        alt="christopher.jpeg"
+                        src="/pexels-jakubzerdzicki.jpg"
+                        alt="christopher"
                         className="h-[20%] pl-8 overlayAboutImg"
                         width={100}
                         height={100}
@@ -77,7 +77,7 @@ const About = () => {
                         transition: !isMobileView && "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                     }}
                 >
-                    <img src="/office.jpeg"
+                    <img src="/pexels-fauxels.jpg"
                         alt="christopher.jpeg"
                         className="h-[100%] w-[100%]"
                     />
@@ -131,7 +131,7 @@ const About = () => {
                     }}
                 >
                     <img
-                        src="/about-mission.jpeg"
+                        src="/pexels-divinetechygirl.jpg"
                         alt="christopher.jpeg"
                         className="h-[100%] md:pl-8 w-[100%]"
                         width={1000}

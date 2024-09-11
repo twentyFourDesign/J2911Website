@@ -5,7 +5,10 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .theme {
@@ -701,4 +704,8 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.error {
+  color: red;
 }
