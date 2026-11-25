@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
+// VITE_BASE lets the same code build for the live domain ("/") or a sub-path preview ("./").
 export default defineConfig({
-  base: "https://j2911.com.ng/",
+  base: process.env.VITE_BASE || "/",
   plugins: [react()],
-})
+});
