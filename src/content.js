@@ -6,7 +6,7 @@ export const company = {
   tagline: "Your Resourceful Partner",
   summary:
     "An ICT, education, business development and policy consultancy helping organisations plan, build and grow with confidence.",
-  address: ["1A, Road 3, Ikota Villa Estate", "Lekki, Lagos, Nigeria"],
+  address: ["Lagos, Nigeria"],
   phone: "+234 704 454 4455",
   phoneHref: "tel:+2347044544455",
   email: "info@j2911.com.ng",

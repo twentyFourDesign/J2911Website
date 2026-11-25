@@ -74,7 +74,7 @@ export default function ContactSection({ headingLevel = "h2" }) {
             </li>
             <li className="flex gap-4">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-brand-600 shadow-sm"><Icon name="pin" /></span>
-              <div><p className="text-sm text-muted">Office</p><address className="font-semibold not-italic">{company.address.join(", ")}</address></div>
+              <div><p className="text-sm text-muted">Location</p><address className="font-semibold not-italic">{company.address.join(", ")}</address></div>
             </li>
           </ul>
         </Reveal>
