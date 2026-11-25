@@ -26,6 +26,6 @@ Add `{{organisation}}` to the EmailJS template to receive the new optional field
 npm run build    # outputs dist/
 ```
 
-Upload the contents of `dist/` to the web root. `public/.htaccess` (Apache/cPanel) and `public/_redirects` (Netlify) send unknown paths to `index.html` so links like `/about` work.
+Upload the contents of `dist/` to the web root. `vercel.json` (Vercel), `public/.htaccess` (Apache/cPanel) and `public/_redirects` (Netlify) send unknown paths to `index.html` so links like `/about` work.
 
 Photos live in `public/images` as WebP at 800px and 1600px wide.
