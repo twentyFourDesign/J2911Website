@@ -1,39 +1,27 @@
-import './App.css';
-import Home from './views/home';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.min.css";
-import Services from './views/services';
-import About from './views/about';
-import ContactUs from './views/contact';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { RouterProvider, createBrowserRouter, createHashRouter } from "react-router";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import About from "./pages/About";
+import ContactPage from "./pages/ContactPage";
+import NotFound from "./pages/NotFound";
 
-function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "services",
-      element: <Services />,
-    },
-    {
-      path: "contact",
-      element: <ContactUs />,
-    },
-    {
-      path: "about",
-      element: <About />,
-    },
-  ]);
+const routes = [
+  {
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "services", element: <Services /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <ContactPage /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+];
 
-  return (
-    <>
-      <ToastContainer />
-      <RouterProvider router={router} />
-    </>
-  )
+// Hash routing is only used for static previews that can't rewrite URLs (VITE_HASH_ROUTER=true).
+const router = import.meta.env.VITE_HASH_ROUTER === "true" ? createHashRouter(routes) : createBrowserRouter(routes);
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;
