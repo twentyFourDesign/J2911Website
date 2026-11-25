@@ -10,7 +10,7 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.3' } },
-  overrides: [{ files: ['vite.config.js', 'tailwind.config.js', 'postcss.config.js'], env: { node: true } }],
+  overrides: [{ files: ['vite.config.js', 'tailwind.config.js', 'postcss.config.js', 'api/**/*.js'], env: { node: true } }],
   plugins: ['react-refresh'],
   rules: {
     'react/jsx-no-target-blank': 'off',

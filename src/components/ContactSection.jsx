@@ -1,11 +1,10 @@
 import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import { company, contact } from "../content";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 
-const { VITE_SERVICE_KEY, VITE_TEMPLATE_ID, VITE_PUBLIC_KEY } = import.meta.env;
+const CONTACT_ENDPOINT = `${import.meta.env.BASE_URL}api/contact`;
 
 function Field({ id, label, error, children }) {
   return (
@@ -23,28 +22,37 @@ export default function ContactSection({ headingLevel = "h2" }) {
     register,
     handleSubmit,
     reset,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = async (data) => {
     if (data.website) return; // honeypot: bots fill hidden fields
-    if (!VITE_SERVICE_KEY || !VITE_TEMPLATE_ID || !VITE_PUBLIC_KEY) {
-      toast.error(`The form isn't configured yet. Please email us at ${company.email}.`);
-      return;
-    }
+    const fallback = `Please try again or email us at ${company.email}.`;
     try {
-      await emailjs.send(
-        VITE_SERVICE_KEY,
-        VITE_TEMPLATE_ID,
-        { name: data.name, email: data.email, organisation: data.organisation || "", projectType: data.projectType, message: data.message },
-        { publicKey: VITE_PUBLIC_KEY },
-      );
-      toast.success("Thanks, your message has been sent. We'll be in touch shortly.");
-      reset();
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        toast.success("Thanks, your message has been sent. We'll be in touch shortly.");
+        reset();
+        return;
+      }
+      if (response.status === 422 && result.fields) {
+        Object.entries(result.fields).forEach(([name, message]) => setError(name, { type: "server", message }));
+        return;
+      }
+      // Keep what the visitor typed so they can retry.
+      if (response.status === 429) toast.error(result.error || "Too many messages. Please try again later.");
+      else if (response.status === 503) toast.error(`The form isn't available right now. Please email us at ${company.email}.`);
+      else toast.error(`Sorry, your message couldn't be sent. ${fallback}`);
     } catch (error) {
       console.error(error);
-      // Keep what the visitor typed so they can retry.
-      toast.error(`Sorry, something went wrong. Please try again or email ${company.email}.`);
+      toast.error(`Sorry, we couldn't reach the server. ${fallback}`);
     }
   };
 
